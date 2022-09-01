@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Hang Person</title>
+</head>
+<body>
+    <div class="container">
+
+        <div id="hangman-portrait">
+            <svg id="head">
+                <circle r="50" stroke-width="4" cx="50%" cy="54px" fill="none" stroke="rgb(0, 0, 0)"></circle>
+
+
+                <line x1="50%" y1="106px" x2="50%" y2="2000px" style="stroke:rgb(0,0,0);stroke-width:4"></line>
+            </svg>
+        </div>
+
+        <div id="correct-letters">
+
+        </div>
+
+        <div id="keyboard">
+            <div id="top-row">
+                <button onclick="GuessLetter(event)">q</button>
+                <button onclick="GuessLetter(event)">w</button>
+                <button onclick="GuessLetter(event)">e</button>
+                <button onclick="GuessLetter(event)">r</button>
+                <button onclick="GuessLetter(event)">t</button>
+                <button onclick="GuessLetter(event)">y</button>
+                <button onclick="GuessLetter(event)">u</button>
+                <button onclick="GuessLetter(event)">i</button>
+                <button onclick="GuessLetter(event)">o</button>
+                <button onclick="GuessLetter(event)">p</button>
+            </div>
+
+            <div id="home-row">
+                <button onclick="GuessLetter(event)">a</button>
+                <button onclick="GuessLetter(event)">s</button>
+                <button onclick="GuessLetter(event)">d</button>
+                <button onclick="GuessLetter(event)">f</button>
+                <button onclick="GuessLetter(event)">g</button>
+                <button onclick="GuessLetter(event)">h</button>
+                <button onclick="GuessLetter(event)">j</button>
+                <button onclick="GuessLetter(event)">k</button>
+                <button onclick="GuessLetter(event)">l</button>
+            </div>
+
+            <div id="bottom-row">
+                <button onclick="GuessLetter(event)">z</button>
+                <button onclick="GuessLetter(event)">x</button>
+                <button onclick="GuessLetter(event)">c</button>
+                <button onclick="GuessLetter(event)">v</button>
+                <button onclick="GuessLetter(event)">b</button>
+                <button onclick="GuessLetter(event)">n</button>
+                <button onclick="GuessLetter(event)">m</button>
+            </div>
+        </div> <!-- Keyboard -->
+
+        <button onclick="StartGame()" id="start-button">Start</button>
+
+    </div> <!-- Container -->
+
+    <script src="../js/hangman.js"></script>
+</body>
+</html>
