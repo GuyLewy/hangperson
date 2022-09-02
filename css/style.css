@@ -2,6 +2,10 @@
     width: 80%;
     max-width: 1600px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 98vh;
 }
 
 #keyboard {
@@ -43,13 +47,22 @@
 }
 
 #hangman-portrait{
-    height:  500px;
+    height: 350px;
     width: 100%;
 }
 
 #hangman{
     width: 100%;
-    height: 100%;
+    height: 350px;
+}
+
+#win-message-div{
+    margin: 0 auto;
+}
+
+#win-message{
+    font-size: 70px;
+    text-align: center;
 }
 
 @media (max-width: 1000px) {

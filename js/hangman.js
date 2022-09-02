@@ -1,4 +1,4 @@
-var words3 = ["hey", "now", "bow"],
+var words3 = ["hey", "now", "bow", "add"],
     words4 = [],
     words5 = [],
     words6 = [],
@@ -10,8 +10,10 @@ var words3 = ["hey", "now", "bow"],
     guessedLetters = [],
     gameStart = false;
     
-const correctLettersDiv = document.getElementById("correct-letters")
-const hangman = document.getElementById("hangman")
+const correctLettersDiv = document.getElementById("correct-letters"),
+    hangman = document.getElementById("hangman"),
+    keyboard = document.getElementById("keyboard"),
+    winMessage = document.getElementById("win-message");
 
 function Mistake1() {
     var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
@@ -150,8 +152,16 @@ function Mistake8() {
 }
 
 function StartGame() {
-    EndGame();
+
+    document.getElementById("start-button").innerHTML = "Restart";
+
+    DeleteGuessLines();
+    DeleteHangmanPicture();
+
     gameStart = true;
+    keyboard.style.display = "block";
+    winMessage.style.display = "none";
+
     word = words3[Math.floor(Math.random() * words3.length)];
     console.log(word)
 
@@ -186,10 +196,7 @@ function CheckCorrectGuess(){
     }
 }
 
-function EndGame(){
-
-    console.log("game over")
-
+function DeleteGuessLines(){
     var correctLetterDivs = document.getElementsByClassName("underline");
     deleteNumber = correctLetterDivs.length;
     console.log(correctLetterDivs.length);
@@ -198,9 +205,9 @@ function EndGame(){
         correctLetterDivs[0].remove();
         console.log("deleting line", i);
     }
+}
 
-    gameStart = false;
-
+function DeleteHangmanPicture(){
     var hangmanLines = document.getElementById("hangman").getElementsByTagName("line");
     var deleteLines = hangmanLines.length;
     for(i = 0; i<deleteLines; i++){
@@ -212,6 +219,26 @@ function EndGame(){
     for(i = 0; i < deleteCircles; i++){
         hangmanCircles[0].remove();
     }
+}
+
+function EndGame(){
+    console.log("game over")
+    gameStart = false;
+    document.getElementById("start-button").innerHTML = "Retry"
+    keyboard.style.display = "none";
+    winMessage.style.display = "block";
+}
+
+function WinGame(){
+    winMessage.innerHTML = "You Win"
+
+    EndGame();
+}
+
+function LoseGame(){
+    winMessage.innerHTML = "You Lose"
+
+    EndGame();
 }
 
 function GuessLetter(event) {
@@ -247,12 +274,12 @@ function GuessLetter(event) {
         }
 
         if(correctGuessCounter == word.length){
-            EndGame();
+            WinGame();
             console.log("You WIN!!!");
         }
         
         if(wrongGuessCounter == 8) {
-            EndGame();
+            LoseGame();
             console.log("You lose :(");
         }
         
