@@ -8,8 +8,19 @@
     <title>Hang Person</title>
 </head>
 <body>
-    <div class="container">
+    
+    <img id="open-menu-button" class="menu-button" src="../images/menu-outline.svg" alt="Open Menu" onclick="OpenSettingsMenu()">
+    <img id="close-menu-button" class="menu-button" src="../images/close-menu-button.svg" alt="Close Menu" onclick="CloseSettingsMenu()">
 
+    <div id="menu">
+        <h1>Settings</h1>
+        <input type="range" max="7" min="3">
+        <h2>Word Length: 3 Letters</h2>
+        <button onclick="SettingsChosen()" id="choose-settings-button">Choose Settings</button>
+    </div>
+
+    <div class="container">
+        
         <div id="hangman-portrait">
             <svg id="hangman">
 
@@ -94,5 +105,6 @@
     </div> <!-- Container -->
 
     <script src="../js/hangman.js"></script>
+    <script src="../js/menu.js"></script>
 </body>
 </html>
