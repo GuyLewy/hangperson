@@ -1,15 +1,10 @@
-var words3 = ["hey", "now", "bow", "add"],
-    words4 = [],
-    words5 = [],
-    words6 = [],
-    words7 = [],
-    letter,
+var letter,
     correctLetter = false,
     wrongGuessCounter = 0,
     correctGuessCounter = 0,
     guessedLetters = [],
     gameStart = false;
-    
+
 const correctLettersDiv = document.getElementById("correct-letters"),
     hangman = document.getElementById("hangman"),
     keyboard = document.getElementById("keyboard"),
@@ -162,7 +157,7 @@ function StartGame() {
     keyboard.style.display = "block";
     winMessage.style.display = "none";
 
-    word = words3[Math.floor(Math.random() * words3.length)];
+    word = eval("words" + wordLength)[Math.floor(Math.random() * eval("words" + wordLength).length)];
     console.log(word)
 
     correctLetter = false;
