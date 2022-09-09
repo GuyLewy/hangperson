@@ -27,7 +27,7 @@ function CloseSettingsMenu(){
 
 function SettingsChosen(){
     wordLength = wordLengthSlider.value;
-    console.log(wordLength);
+    //console.log(wordLength);
     SliderInput();
     CloseSettingsMenu();
 }

@@ -158,7 +158,7 @@ function StartGame() {
     winMessage.style.display = "none";
 
     word = eval("words" + wordLength)[Math.floor(Math.random() * eval("words" + wordLength).length)];
-    console.log(word)
+    //console.log(word)
 
     correctLetter = false;
     wrongGuessCounter = 0;
@@ -169,7 +169,7 @@ function StartGame() {
         eval("var line" + i + "= document.createElement(\"div\");");
         eval("line" + i).classList.add("underline");
         correctLettersDiv.appendChild(eval("line" + i));
-        console.log("running", i)
+        //console.log("running", i)
     }
 }
 
@@ -181,8 +181,8 @@ function CheckCorrectGuess(){
 
         if(letter == word[i]){
 
-            console.log("correct letter")
-            console.log("position", i)
+            //console.log("correct letter")
+            //console.log("position", i)
             correctGuessCounter++;
             correctLetter = true;
 
@@ -194,11 +194,11 @@ function CheckCorrectGuess(){
 function DeleteGuessLines(){
     var correctLetterDivs = document.getElementsByClassName("underline");
     deleteNumber = correctLetterDivs.length;
-    console.log(correctLetterDivs.length);
+    //console.log(correctLetterDivs.length);
 
     for(i = 0; i < deleteNumber; i++){
         correctLetterDivs[0].remove();
-        console.log("deleting line", i);
+        //console.log("deleting line", i);
     }
 }
 
@@ -217,7 +217,7 @@ function DeleteHangmanPicture(){
 }
 
 function EndGame(){
-    console.log("game over")
+    //console.log("game over")
     gameStart = false;
     document.getElementById("start-button").innerHTML = "Retry"
     keyboard.style.display = "none";
@@ -247,7 +247,7 @@ function GuessLetter(event) {
             CheckCorrectGuess();
 
             if (correctLetter == false) {
-                console.log("The letter", letter ,"is not in the word");
+                //console.log("The letter", letter ,"is not in the word");
                 wrongGuessCounter++;
 
                 var a = eval("Mistake" + wrongGuessCounter + "()");
@@ -260,22 +260,22 @@ function GuessLetter(event) {
             }
 
             guessedLetters.push(letter);
-            console.log("wrong guesses:", wrongGuessCounter);
+            //console.log("wrong guesses:", wrongGuessCounter);
         }
 
         else{
-            console.log("Letter", letter, "already guessed");
-            console.log("wrong guesses:", wrongGuessCounter);
+            //console.log("Letter", letter, "already guessed");
+            //console.log("wrong guesses:", wrongGuessCounter);
         }
 
         if(correctGuessCounter == word.length){
             WinGame();
-            console.log("You WIN!!!");
+            //console.log("You WIN!!!");
         }
         
         if(wrongGuessCounter == 8) {
             LoseGame();
-            console.log("You lose :(");
+            //console.log("You lose :(");
         }
         
     }
